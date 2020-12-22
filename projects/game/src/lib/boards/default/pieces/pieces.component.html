@@ -1,0 +1,21 @@
+<svg:defs>
+  <radialGradient id="gbe-chinesecheckers-marble-gradient" fx="35%" fy="35%" fr="0%" cx="35%" cy="35%" r="75%">
+    <stop offset="10%" stop-color="transparent" stop-opacity="0" />
+    <stop offset="90%" stop-color="#000000" stop-opacity="1" />
+  </radialGradient>
+  <symbol id="gbe-chinesecheckers-marble" viewBox="0 0 100 100">
+    <circle id="gbe-chinesecheckers-marble-shape" cx="50" cy="50" r="40" />
+    <use href="#gbe-chinesecheckers-marble-shape" fill="url(#gbe-chinesecheckers-marble-gradient)" />
+  </symbol>
+  <symbol id="gbe-chinesecheckers-marble-log" viewBox="10 10 80 80">
+    <use href="#gbe-chinesecheckers-marble-shape"/>
+    <use href="#gbe-chinesecheckers-marble-shape" fill="url(#gbe-chinesecheckers-marble-gradient)" />
+  </symbol>
+</svg:defs>
+<ng-template #Marble let-teamId="teamId">
+  <svg:use href="#gbe-chinesecheckers-marble" [ngClass]="teamId" />
+</ng-template>
+<ng-template #MarbleLog let-teamId="teamId">
+  <svg:use href="#gbe-chinesecheckers-marble-log" [ngClass]="teamId" />
+</ng-template>
+  

@@ -1,0 +1,74 @@
+.title .Red {
+  fill:rgb(191,0,0);
+}
+.title .Yellow {
+  fill:rgb(191,191,0);
+}
+.title .Green {
+  fill:rgb(0,191,0);
+}
+.title .Cyan {
+  fill:rgb(0,191,191);
+}
+.title .Blue {
+  fill:rgb(0,0,191);
+}
+.title .Magenta {
+  fill:rgb(191,0,191);
+}
+
+.border {
+  fill:rgb(0,0,0);
+}
+.territory {
+  stroke:rgb(96,96,96);
+  stroke-width: 0.5;
+}
+.territory.open {
+  fill:rgb(255,255,255);
+  stroke:rgb(162,162,162);
+}
+.territory.red {
+  fill:rgb(255,127,127);
+}
+.territory.yellow {
+  fill:rgb(255,255,127);
+}
+.territory.green {
+  fill:rgb(127,255,127);
+}
+.territory.cyan {
+  fill:rgb(127,255,255);
+}
+.territory.blue {
+  fill:rgb(127,127,255);
+}
+.territory.magenta {
+  fill:rgb(255,127,255);
+}
+.edge {
+  fill:black;
+}
+.cap {
+  stroke:black;
+  stroke-width: 2;
+}
+.highlight {
+  fill:none;
+  stroke:rgb(0,0,255);
+  stroke-width:1;
+}
+.piece {
+  width: 62px;
+  height: 62px;
+  pointer-events: none;
+}
+.movable {
+  cursor:pointer;
+}
+::ng-deep text{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

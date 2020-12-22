@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="'0 0 '+viewBox.width+' '+(viewBox.height+20)" style="width:66%">
+  <defs gamesbyemail-games-chinesecheckers-default-piecelibrary #pieceLibrary></defs>
+  <text [attr.x]="viewBox.width/2" y="3" text-anchor="middle" alignment-baseline="hanging" style="font: bold 20px sans-serif">{{game.header}}</text>
+  <g transform="translate(0,10)">
+    <g transform="translate(0,10)">
+      <g *ngFor="let title of getTitles()" class="title" [attr.transform]="title.transform">
+        <text [attr.text-anchor]="title.textAnchor" [attr.class]="title.team.id" style="font: bold 15px sans-serif">
+          <tspan *ngIf="title.team.myTurn" alignment-baseline="central">&#10145; </tspan>
+          <tspan alignment-baseline="central">{{title.team.player.title}}</tspan>
+          <tspan *ngIf="title.team.myTurn" alignment-baseline="central"> &#11013;</tspan>
+        </text>
+      </g>
+    </g>
+    <svg [attr.viewBox]="viewBox.x+' '+viewBox.y+' '+viewBox.width+' '+viewBox.height" #boardArea>
+      <g [attr.transform]="'rotate('+game.board.rotation+')'">
+        <g *ngFor="let territory of game.board.territories" [attr.transform]="territoryTransform(territory)">
+          <polygon [attr.points]="size.polygon" class="territory" [ngClass]="classes(territory)" (mousedown)="territoryMousedown(territory)"
+            (mouseup)="territoryMouseup(territory)" (mouseenter)="territoryMouseenter(territory,$event)" (mouseleave)="territoryMouseleave()" />
+          <ng-container *ngFor="let a of territory.adjacents;let i=index">
+            <polygon *ngIf="!a && territory.adjacents[(i+1)%6]" class="edge" [attr.points]="size.edges[i]" />
+            <line *ngIf="!a && !territory.adjacents[(i+5)%6] && !territory.adjacents[(i+4)%6]" class="cap" [attr.x1]="size.caps[i].p1.x"
+              [attr.y1]="size.caps[i].p1.y" [attr.x2]="size.caps[i].p2.x" [attr.y2]="size.caps[i].p2.y" />
+          </ng-container>
+          <polygon *ngIf="territory.highlight!==undefined" [attr.points]="size.polygon" transform="scale(0.97)" class="highlight" />
+          <text *ngIf="!territory.piece && territory.highlight!==undefined && moveIsMultiJump(game.lastMoves[0])"
+            text-anchor="middle" alignment-baseline="central" [attr.transform]="'rotate('+(-game.board.rotation)+')'"
+            style="font-size:18px">{{territory.highlight}}</text>
+        </g>
+        <g *ngFor="let territory of game.board.territories">
+          <g *ngIf="territory.piece" [attr.transform]="territoryTransform(territory,true)">
+            <svg x="-15.5" y="-15.5" width="31" height="31" [template-projection]="pieceLibrary" [bindElement]="territory.piece"
+              [entity]="territory.piece" class="piece"></svg>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </g>
+</svg>
+<gamesbyemail-games-chinesecheckers-default-log #log [game]="game" [pieces]="pieceLibrary"></gamesbyemail-games-chinesecheckers-default-log>

@@ -1,0 +1,9 @@
+.piece-image {
+  float:left;
+  margin-right:5px;
+  width:62px;
+  height:62px;
+}
+.clear-left {
+  clear: left;
+}

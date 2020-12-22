@@ -1,0 +1,7 @@
+.option-radio  {
+  display: block;
+  margin:10px;
+}
+.option-radio ::ng-deep label  {
+  white-space: normal;
+}

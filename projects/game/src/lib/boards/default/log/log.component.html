@@ -1,0 +1,7 @@
+<div style="display:grid;grid-template-columns:26px 98px 98px 98px 98px 98px 98px;grid-row-gap:2px;grid-column-gap:5px">
+  <ng-container *ngFor="let state of game.states;let i = index">
+    <span *ngIf="i===0 || i%game.teams.length===1" [ngStyle]="{'grid-area': gridArea(i,true),'justify-self': 'end','align-self': 'start'}">{{(i===0 ? i : (i-1)/game.teams.length+1)}}.</span>
+    <span [ngStyle]="{'grid-area': gridArea(i)}" [template-projection]="entryLibrary" [key]="state.moves[0]" [context]="{game:game,move:state.moves[0],pieces:pieces}"></span>
+  </ng-container>
+</div>
+<gamesbyemail-games-chinesecheckers-default-log-entries #entryLibrary></gamesbyemail-games-chinesecheckers-default-log-entries>

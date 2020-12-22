@@ -1,0 +1,26 @@
+<mat-accordion *ngIf="game.options">
+
+  <mat-expansion-panel *ngIf="optionChosen('jumpMultiplier')">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <gamesbyemail-base-optiontitle type="option" [info]="true">
+          Jerry's Jump Multiplier.
+        </gamesbyemail-base-optiontitle>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>
+      Jerry's Jump Multiplier allows a marble to jump another marble any number of spaces away as long as it can land
+      the same number of spaces away on the far side and there are no other marbles in between on either side. In the
+      examples below, @ can jump O to land on empty x as long as all _ are empty.
+    </p>
+    <ul>
+      <li class="example">@ O x</li>
+      <li class="example">@ _ O _ x</li>
+      <li class="example">@ _ _ O _ _ x</li>
+      <li class="example">@ _ _ _ O _ _ _ x</li>
+      <li class="example">@ _ _ _ _ O _ _ _ _ x</li>
+      <li class="example">@ _ _ _ _ _ O _ _ _ _ _ x</li>
+    </ul>
+  </mat-expansion-panel>
+
+</mat-accordion>

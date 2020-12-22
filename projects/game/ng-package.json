@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/game",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@gamesbyemail/base": "gamesbyemail.base",
+      "@packageforge/deep-copy": "packageforge.deepCopy",
+      "@packageforge/geometry2d": "packageforge.geometry2d",
+      "@packageforge/svg-dialog": "packageforge.svgDialog",
+      "@packageforge/template-projection": "packageforge.templateProjection",
+      "@packageforge/deferred": "packageforge.deferred"
+    }    
+  }
+}

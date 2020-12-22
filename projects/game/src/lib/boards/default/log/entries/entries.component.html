@@ -1,0 +1,15 @@
+<ng-template #StartOfGame>
+  Start of Game
+</ng-template>
+<ng-template #Move let-game="game" let-move="move" let-pieces="pieces">
+  <svg class="piece" [template-projection]="pieces" [key]="{teamId:teamIdFromChar(move.piece),log:true}"></svg>
+  {{spaceName(game,move.from)}}
+  <ng-container *ngFor="let index of move.to">
+    -
+    {{spaceName(game,index)}}
+  </ng-container>
+  <span *ngIf="move.offerDraw" title="Draw Offered">(=)</span>
+</ng-template>
+<ng-template #AcceptDraw let-game="game" let-move="move" let-pieces="pieces">
+  <span title="Draw Accepted">(=)</span>
+</ng-template>

@@ -1,0 +1,47 @@
+<gamesbyemail-base-rules [gameName]="'Chinese Checkers'">
+
+  <h5><a name="Object">Object</a></h5>
+  <p>Move all your colored marbles up the board to the opposite triangle.</p>
+  <h5><a name="Moves">Moves</a></h5>
+  <p>Players take turns moving one marble in one of six possible directions,
+    one space at a time, to an unoccupied space.
+  </p>
+  <h5><a name="Jumping">Jumping</a></h5>
+  <p>A marble may jump an adjacent marble of any color in a straght line if the
+    immediate space beyond is unoccupied. The jumping piece (and only the jumping
+    piece) may continue to make similar jumps (in in any diirection) during the
+    same turn. Jumping is not compulsary, and the jumped pieces are not moved nor
+    removed from the board. All pieces remain in play for the entire game, except
+    those of a player who resigns.</p>
+  <h5><a name="Jump Multiplier">Jerry's Jump Multiplier</a></h5>
+  <p>Jerry's Jump Multiplier allows a marble to jump a marble any number of spaces
+    away as long as it can land the same number of spaces away on the far side and there
+    are no other marbles in between on either side.
+  </p>
+  <p>Time for some ASCII art. Say @ is
+    your jumping marble, O is any other marble, _ is an empty space, and x
+    is the empty destination space.
+    The following are legal jumps:<br>
+    @ O x<br>
+    @ _ O _ x<br>
+    @ _ _ O _ _ x<br>
+    @ _ _ _ O _ _ _ x<br>
+    @ _ _ _ _ O _ _ _ _ x<br>
+    @ _ _ _ _ _ O _ _ _ _ _ x<br>
+    etc.
+  </p>
+  <p>The following are not legal jumps:<br>
+    @ _ O x<br>
+    @ _ O _ _ x<br>
+    @ _ _ _ O _ O _ x<br>
+    @ _ O _ _ O _ _ _ _ x
+  </p>
+  <p>When making multiple jumps, how you jumped the first marble
+    does <b>not</b> affect how you must jump the second. The following is a legal multiple
+    jump:<br>
+    @ _ O _ x _ _ O _ _ x O x
+  </p>
+  <p>Thanks to "HornCologne" for sending the suggestion in, who in turn gives credit to Jerry for showing him.
+  </p>
+  <svg gamesbyemail-games-chinesecheckers-default-piecelibrary #templateLibrary></svg>
+</gamesbyemail-base-rules>
